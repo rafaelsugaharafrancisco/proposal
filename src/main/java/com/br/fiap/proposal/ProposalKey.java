@@ -13,17 +13,17 @@ public class ProposalKey {
     private String agencyCode;
 
     @Column(length = 4, nullable = false)
-    private Integer currencyYear;
+    private Integer currentYear;
 
     @Column(length = 8, nullable = false)
     private String number;
 
     public ProposalKey(){}
 
-    public ProposalKey(String bankCode, String agencyCode, Integer currencyYear, String number) {
+    public ProposalKey(String bankCode, String agencyCode, Integer currentYear, String number) {
         this.bankCode = bankCode;
         this.agencyCode = agencyCode;
-        this.currencyYear = currencyYear;
+        this.currentYear = currentYear;
         this.number = number;
     }
 
@@ -43,12 +43,12 @@ public class ProposalKey {
         this.agencyCode = agencyCode;
     }
 
-    public Integer getCurrencyYear() {
-        return currencyYear;
+    public Integer getCurrentYear() {
+        return currentYear;
     }
 
-    public void setCurrencyYear(Integer year) {
-        this.currencyYear = year;
+    public void setCurrentYear(Integer year) {
+        this.currentYear = year;
     }
 
     public String getNumber() {

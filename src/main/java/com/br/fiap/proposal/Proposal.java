@@ -128,7 +128,7 @@ public class Proposal {
                     new ProposalDataResponseDTO(
                         proposalKey.getBankCode(),
                         proposalKey.getAgencyCode(),
-                        proposalKey.getCurrencyYear(),
+                        proposalKey.getCurrentYear(),
                         proposalKey.getNumber(),
                         type,
                         productCode,
