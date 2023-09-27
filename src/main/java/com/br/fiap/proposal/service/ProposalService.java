@@ -1,5 +1,6 @@
 package com.br.fiap.proposal.service;
 
+import com.br.fiap.proposal.controller.exception.ProposalNotFoundException;
 import com.br.fiap.proposal.dto.ProposalRequestDTO;
 import com.br.fiap.proposal.dto.ProposalResponseDTO;
 import com.br.fiap.proposal.entity.*;
@@ -44,9 +45,11 @@ public class ProposalService {
     }
 
     public ProposalResponseDTO getOne(String bankCode, String agencyCode, int year, String number) {
-        var proposal = proposalRepository.findById(new ProposalKey(bankCode, agencyCode, year, number));
+        var proposal = proposalRepository
+                .findById(new ProposalKey(bankCode, agencyCode, year, number))
+                .orElseThrow(() -> new ProposalNotFoundException("Proposal not found!"));
 
-        return proposal.get().toProposalResponseDto();
+        return proposal.toProposalResponseDto();
     }
 
     public List<ProposalResponseDTO> getList() {
