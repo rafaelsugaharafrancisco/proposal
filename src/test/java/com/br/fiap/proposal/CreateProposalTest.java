@@ -1,5 +1,8 @@
 package com.br.fiap.proposal;
 
+import com.br.fiap.proposal.entity.*;
+import com.br.fiap.proposal.entity.util.ProposalBuilder;
+import com.br.fiap.proposal.reopsitory.ProposalRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

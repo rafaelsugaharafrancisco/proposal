@@ -1,10 +1,10 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.reopsitory;
 
+import com.br.fiap.proposal.entity.Proposal;
+import com.br.fiap.proposal.entity.ProposalKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
 
 @Repository
 public interface ProposalRepository extends JpaRepository<Proposal, ProposalKey> {

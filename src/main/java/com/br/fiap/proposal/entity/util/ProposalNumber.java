@@ -1,4 +1,4 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.entity.util;
 
 import java.text.DecimalFormat;
 

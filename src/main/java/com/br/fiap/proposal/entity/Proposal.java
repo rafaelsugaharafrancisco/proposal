@@ -1,5 +1,8 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.entity;
 
+import com.br.fiap.proposal.dto.DeadLineDTO;
+import com.br.fiap.proposal.dto.ProposalDataResponseDTO;
+import com.br.fiap.proposal.dto.ProposalResponseDTO;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

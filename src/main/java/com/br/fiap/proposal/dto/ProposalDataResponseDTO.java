@@ -1,4 +1,6 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.dto;
+
+import com.br.fiap.proposal.entity.ProposalType;
 
 import java.time.LocalDate;
 

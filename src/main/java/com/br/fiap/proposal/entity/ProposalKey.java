@@ -1,4 +1,4 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

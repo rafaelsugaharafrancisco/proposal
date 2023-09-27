@@ -1,7 +1,12 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.service;
 
+import com.br.fiap.proposal.dto.ProposalRequestDTO;
+import com.br.fiap.proposal.dto.ProposalResponseDTO;
+import com.br.fiap.proposal.entity.*;
+import com.br.fiap.proposal.entity.util.ProposalBuilder;
+import com.br.fiap.proposal.entity.util.ProposalNumber;
+import com.br.fiap.proposal.reopsitory.ProposalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

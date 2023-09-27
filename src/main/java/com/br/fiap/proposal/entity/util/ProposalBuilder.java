@@ -1,4 +1,9 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.entity.util;
+
+import com.br.fiap.proposal.entity.AmountType;
+import com.br.fiap.proposal.entity.Proposal;
+import com.br.fiap.proposal.entity.ProposalStatus;
+import com.br.fiap.proposal.entity.ProposalType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

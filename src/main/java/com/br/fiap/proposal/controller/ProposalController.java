@@ -1,5 +1,8 @@
-package com.br.fiap.proposal;
+package com.br.fiap.proposal.controller;
 
+import com.br.fiap.proposal.dto.ProposalRequestDTO;
+import com.br.fiap.proposal.dto.ProposalResponseDTO;
+import com.br.fiap.proposal.service.ProposalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
