@@ -20,8 +20,6 @@ public class ProposalBuilder {
     private Double totalValue;
     private AmountType amountType;
     private int amount;
-    private LocalDate initialDate;
-    private LocalDateTime updatedDateTime;
 
     public ProposalBuilder setBank(String bank) {
         this.bank = bank;
@@ -78,17 +76,7 @@ public class ProposalBuilder {
         return this;
     }
 
-    public ProposalBuilder setInitialDate(LocalDate initialDate) {
-        this.initialDate = initialDate;
-        return this;
-    }
-
-    public ProposalBuilder setUpdatedDateTime(LocalDateTime updatedDateTime) {
-        this.updatedDateTime = updatedDateTime;
-        return this;
-    }
-
     public Proposal createProposal() {
-        return new Proposal(bank, agency, year, number, type, status, productCode, subProductCode, totalValue, amountType, amount, initialDate, updatedDateTime);
+        return new Proposal(bank, agency, year, number, type, status, productCode, subProductCode, totalValue, amountType, amount);
     }
 }

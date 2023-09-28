@@ -42,7 +42,7 @@ public class Proposal {
     public Proposal() {
     }
 
-    public Proposal(String bank, String agency, int year, String number, ProposalType type, ProposalStatus status, String productCode, String subProductCode, Double totalValue, AmountType amountType, int amount, LocalDate initialDate, LocalDateTime updatedDateTime) {
+    public Proposal(String bank, String agency, int year, String number, ProposalType type, ProposalStatus status, String productCode, String subProductCode, Double totalValue, AmountType amountType, int amount) {
         this.proposalKey = new ProposalKey(bank, agency, year, number);
         this.type = type;
         this.status = status;
@@ -50,80 +50,24 @@ public class Proposal {
         this.subProductCode = subProductCode;
         this.totalValue = totalValue;
         this.deadLine = new DeadLine(amountType, amount);
-        this.initialDate = initialDate;
-        this.updatedDateTime = updatedDateTime;
-    }
-
-    public ProposalKey getProposalKey() {
-        return proposalKey;
-    }
-
-    public void setProposalKey(ProposalKey proposalKey) {
-        this.proposalKey = proposalKey;
-    }
-
-    public ProposalType getType() {
-        return type;
+        this.initialDate = LocalDate.now();
+        this.updatedDateTime = LocalDateTime.now();
     }
 
     public void setType(ProposalType type) {
         this.type = type;
     }
 
-    public ProposalStatus getStatus() {
-        return status;
-    }
-
     public void setStatus(ProposalStatus status) {
         this.status = status;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
-    }
-
-    public String getSubProductCode() {
-        return subProductCode;
-    }
-
-    public void setSubProductCode(String subProductCode) {
-        this.subProductCode = subProductCode;
-    }
-
-    public Double getTotalValue() {
-        return totalValue;
     }
 
     public void setTotalValue(Double totalValue) {
         this.totalValue = totalValue;
     }
 
-    public DeadLine getDeadLine() {
-        return deadLine;
-    }
-
     public void setDeadLine(DeadLine deadLine) {
         this.deadLine = deadLine;
-    }
-
-    public LocalDate getInitialDate() {
-        return initialDate;
-    }
-
-    public void setInitialDate(LocalDate initialDate) {
-        this.initialDate = initialDate;
-    }
-
-    public LocalDateTime getUpdatedDateTime() {
-        return updatedDateTime;
-    }
-
-    public void setUpdatedDateTime(LocalDateTime updatedDateTime) {
-        this.updatedDateTime = updatedDateTime;
     }
 
     public ProposalResponseDTO toProposalResponseDto() {

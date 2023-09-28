@@ -5,7 +5,6 @@ import com.br.fiap.proposal.dto.ProposalRequestDTO;
 import com.br.fiap.proposal.dto.ProposalResponseDTO;
 import com.br.fiap.proposal.entity.*;
 import com.br.fiap.proposal.entity.util.ProposalBuilder;
-import com.br.fiap.proposal.entity.util.ProposalNumber;
 import com.br.fiap.proposal.reopsitory.ProposalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,19 +24,16 @@ public class ProposalService {
         proposal.setBank(dto.proposal().bankCode())
                 .setAgency(dto.proposal().agencyCode())
                 .setYear(dto.proposal().year())
-                .setNumber(ProposalNumber.create(proposalRepository.getMaxNumber(
-                                dto.proposal().bankCode(),
-                                dto.proposal().agencyCode(),
-                                dto.proposal().year())))
+                .setNumber(new ProposalNumber(
+                    this.proposalRepository).create(
+                        dto.proposal().bankCode(), dto.proposal().agencyCode(), dto.proposal().year()))
                 .setType(dto.proposal().type())
                 .setStatus(ProposalStatus.CRIADA)
                 .setAmountType(dto.proposal().deadLine().amountType())
                 .setAmount(dto.proposal().deadLine().amount())
                 .setTotalValue(dto.proposal().totalValue())
                 .setProductCode(dto.proposal().productCode())
-                .setSubProductCode(dto.proposal().subProductCode())
-                .setInitialDate(dto.proposal().initialDate())
-                .setUpdatedDateTime(LocalDateTime.now());
+                .setSubProductCode(dto.proposal().subProductCode());
 
         var proposalCreated = proposalRepository.save(proposal.createProposal());
 
