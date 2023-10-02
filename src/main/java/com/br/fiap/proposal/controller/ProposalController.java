@@ -1,5 +1,6 @@
 package com.br.fiap.proposal.controller;
 
+import com.br.fiap.proposal.ProposalUseCase;
 import com.br.fiap.proposal.dto.ProposalRequestDTO;
 import com.br.fiap.proposal.dto.ProposalResponseDTO;
 import com.br.fiap.proposal.service.ProposalService;
@@ -17,9 +18,12 @@ public class ProposalController {
     @Autowired
     private ProposalService proposalService;
 
+    @Autowired
+    private ProposalUseCase proposalUseCase;
+
     @PostMapping
     public ResponseEntity<ProposalResponseDTO> createProposal(@RequestBody ProposalRequestDTO proposal) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(proposalService.save(proposal));
+        return ResponseEntity.status(HttpStatus.CREATED).body(proposalUseCase.createProposal(proposal));
     }
 
     @GetMapping("/get-one")

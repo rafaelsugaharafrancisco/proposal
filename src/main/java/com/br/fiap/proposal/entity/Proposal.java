@@ -42,14 +42,14 @@ public class Proposal {
     public Proposal() {
     }
 
-    public Proposal(String bank, String agency, int year, String number, ProposalType type, ProposalStatus status, String productCode, String subProductCode, Double totalValue, AmountType amountType, int amount) {
-        this.proposalKey = new ProposalKey(bank, agency, year, number);
+    protected Proposal(ProposalKey proposalKey, ProposalType type, ProposalStatus status, String productCode, String subProductCode, Double totalValue, DeadLine deadLine) {
+        this.proposalKey = proposalKey;
         this.type = type;
         this.status = status;
         this.productCode = productCode;
         this.subProductCode = subProductCode;
         this.totalValue = totalValue;
-        this.deadLine = new DeadLine(amountType, amount);
+        this.deadLine = deadLine;
         this.initialDate = LocalDate.now();
         this.updatedDateTime = LocalDateTime.now();
     }
@@ -72,7 +72,7 @@ public class Proposal {
 
     public ProposalResponseDTO toProposalResponseDto() {
         return new ProposalResponseDTO(
-                    new ProposalDataResponseDTO(
+                new ProposalDataResponseDTO(
                         proposalKey.getBankCode(),
                         proposalKey.getAgencyCode(),
                         proposalKey.getCurrentYear(),
@@ -81,9 +81,10 @@ public class Proposal {
                         productCode,
                         subProductCode,
                         totalValue,
-                        new DeadLineDTO(deadLine.getAmountType(), deadLine.getAmount()),
+                        deadLine.getAmountType(),
+                        deadLine.getAmount(),
                         initialDate
-                    )
+                )
         );
     }
 

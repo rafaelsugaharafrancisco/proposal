@@ -4,12 +4,11 @@ import com.br.fiap.proposal.controller.exception.ProposalNotFoundException;
 import com.br.fiap.proposal.dto.ProposalRequestDTO;
 import com.br.fiap.proposal.dto.ProposalResponseDTO;
 import com.br.fiap.proposal.entity.*;
-import com.br.fiap.proposal.entity.util.ProposalBuilder;
+import com.br.fiap.proposal.entity.ProposalBuilder;
 import com.br.fiap.proposal.reopsitory.ProposalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -29,8 +28,8 @@ public class ProposalService {
                         dto.proposal().bankCode(), dto.proposal().agencyCode(), dto.proposal().year()))
                 .setType(dto.proposal().type())
                 .setStatus(ProposalStatus.CRIADA)
-                .setAmountType(dto.proposal().deadLine().amountType())
-                .setAmount(dto.proposal().deadLine().amount())
+                .setAmountType(dto.proposal().amountType())
+                .setAmount(dto.proposal().amount())
                 .setTotalValue(dto.proposal().totalValue())
                 .setProductCode(dto.proposal().productCode())
                 .setSubProductCode(dto.proposal().subProductCode());

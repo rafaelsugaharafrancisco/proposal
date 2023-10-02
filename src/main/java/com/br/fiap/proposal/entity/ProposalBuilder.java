@@ -1,12 +1,4 @@
-package com.br.fiap.proposal.entity.util;
-
-import com.br.fiap.proposal.entity.AmountType;
-import com.br.fiap.proposal.entity.Proposal;
-import com.br.fiap.proposal.entity.ProposalStatus;
-import com.br.fiap.proposal.entity.ProposalType;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+package com.br.fiap.proposal.entity;
 
 public class ProposalBuilder {
     private String bank;
@@ -77,6 +69,13 @@ public class ProposalBuilder {
     }
 
     public Proposal createProposal() {
-        return new Proposal(bank, agency, year, number, type, status, productCode, subProductCode, totalValue, amountType, amount);
+        return new Proposal(new ProposalKey(bank, agency, year, number),
+                type,
+                status,
+                productCode,
+                subProductCode,
+                totalValue,
+                new DeadLine(amountType, amount)
+        );
     }
 }

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
-import java.util.NoSuchElementException;
 
 @ControllerAdvice
 public class ProposalHandler {
@@ -35,5 +34,17 @@ public class ProposalHandler {
                         HttpStatus.BAD_REQUEST.name(),
                         e.getMessage())
                 );
+    }
+
+    @ExceptionHandler(ProductAndSubProductNotFoundException.class)
+    public ResponseEntity<StandardExceptionDTO> logicalError(ProductAndSubProductNotFoundException e) {
+        return ResponseEntity
+                .status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new StandardExceptionDTO(
+                        LocalDateTime.now(),
+                        HttpStatus.UNPROCESSABLE_ENTITY.value(),
+                        HttpStatus.UNPROCESSABLE_ENTITY.name(),
+                        e.getMessage()
+                ));
     }
 }

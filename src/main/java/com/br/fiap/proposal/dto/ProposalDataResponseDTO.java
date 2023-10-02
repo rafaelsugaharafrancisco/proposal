@@ -1,5 +1,6 @@
 package com.br.fiap.proposal.dto;
 
+import com.br.fiap.proposal.entity.AmountType;
 import com.br.fiap.proposal.entity.ProposalType;
 
 import java.time.LocalDate;
@@ -13,7 +14,8 @@ public record ProposalDataResponseDTO(
         String productCode,
         String subProductCode,
         Double totalValue,
-        DeadLineDTO deadLine,
+        AmountType amountType,
+        Integer amount,
         LocalDate initialDate
 ) {
 }

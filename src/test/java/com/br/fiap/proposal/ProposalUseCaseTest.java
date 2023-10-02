@@ -1,7 +1,7 @@
 package com.br.fiap.proposal;
 
 import com.br.fiap.proposal.entity.*;
-import com.br.fiap.proposal.entity.util.ProposalBuilder;
+import com.br.fiap.proposal.entity.ProposalBuilder;
 import com.br.fiap.proposal.reopsitory.ProposalRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @SpringBootTest
-public class CreateProposalTest {
+public class ProposalUseCaseTest {
 
     @Autowired
     private ProposalRepository proposalRepository;
@@ -27,13 +27,11 @@ public class CreateProposalTest {
                 .setNumber("12345678")
                 .setStatus(ProposalStatus.CRIADA)
                 .setType(ProposalType.PONTUAL_PJ)
-                .setInitialDate(LocalDate.now())
                 .setProductCode("30")
                 .setSubProductCode("2021")
                 .setAmountType(AmountType.MESES)
                 .setAmount(48)
-                .setTotalValue(150000.0)
-                .setUpdatedDateTime(LocalDateTime.now());
+                .setTotalValue(150000.0);
 
         proposalRepository.save(proposalBuilder.createProposal());
     }
@@ -47,13 +45,11 @@ public class CreateProposalTest {
                 .setNumber("12345678")
                 .setStatus(ProposalStatus.CRIADA)
                 .setType(ProposalType.PONTUAL_PJ)
-                .setInitialDate(LocalDate.now())
                 .setProductCode("30")
                 .setSubProductCode("2021")
                 .setAmountType(AmountType.MESES)
                 .setAmount(48)
-                .setTotalValue(150000.0)
-                .setUpdatedDateTime(LocalDateTime.now());
+                .setTotalValue(150000.0);
 
         proposalRepository.save(proposalBuilder.createProposal());
 
